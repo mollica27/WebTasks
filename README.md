@@ -73,13 +73,14 @@ O projeto utiliza o **Entity Framework Core** para gerenciar o banco de dados. O
 
 ---
 
-## **Configuração do Ambiente**
-### **.env**
-Para maior segurança, as informações sensíveis, como a string de conexão, são armazenadas em um arquivo `.env`. Exemplo:
-```env
-DATABASE_CONNECTION_STRING=Server=SEU_SERVIDOR;Database=tasks_db;User Id=SEU_USUARIO;Password=SUA_SENHA;MultipleActiveResultSets=true
-```
-
+Confirme que o arquivo **`appsettings.json`** contém a configuração da string de conexão:
+   ```json
+   {
+     "ConnectionStrings": {
+       "WebTasksContext": "Server=SEU_SERVIDOR;Database=tasks_db;User Id=SEU_USUARIO;Password=SUA_SENHA;MultipleActiveResultSets=true"
+     }
+   }
+   ```
 ---
 
 ## **Passo a Passo para Configurar o Banco de Dados**
