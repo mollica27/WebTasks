@@ -1,0 +1,47 @@
+﻿@model WebTasks.Models.ToDoTask
+
+<div class="modal-header">
+    <h5 class="modal-title">Create New Task</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form asp-action="Create" method="post">
+      
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="Title" name="Title" placeholder="Task Title" required />
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" id="Description" name="Description" placeholder="Task Description"></textarea>
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="TaskPriority" class="form-label">Priority</label>
+            <select class="form-select" id="TaskPriority" name="TaskPriority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="Created" class="form-label">Created</label>
+            <input type="datetime-local" class="form-control" id="Created" name="Created"
+                   value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" required />
+        </div>
+
+       
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="IsCompleted" name="IsCompleted" />
+            <label class="form-check-label" for="IsCompleted">Completed</label>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Create Task</button>
+    </form>
+</div>

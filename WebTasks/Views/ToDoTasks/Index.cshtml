@@ -1,0 +1,106 @@
+﻿@model IEnumerable<WebTasks.Models.ToDoTask>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<form asp-action="Create" method="get">
+    <button type="submit" class="btn btn-dark mb-3">Create New</button>
+</form>
+
+<h1 class="display-4">Welcome ToDoTasks</h1>
+<table>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
+                    onclick="loadModal('/modals/ToDoTasksModal/Create', '#modaltask')">
+                Quick Task
+            </button>
+            <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
+                    onclick="loadModal('/modals/ToDoTasksModal/Edit/1', '#modaltask')">
+                Quick Edit
+            </button>
+            <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
+                    onclick="loadModal('/modals/ToDoTasksModal/Delete/1', '#modaltask')">
+                Quick Delete
+            </button>
+        </td>
+    </tr>
+</table>
+
+<div class="modal fade" id="modaltask" tabindex="-1" aria-labelledby="modaltaskLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modaltaskLabel">Modal Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="taskTable" class="table table-hover border-0">
+    <thead>
+        <tr class="table-dark">
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.TaskPriority)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.IsCompleted)
+            </th>
+            <th scope="row"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @item.TaskPriority.ToString() <!-- Aqui convertendo o enum para string -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsCompleted)
+                </td>
+                <td>
+                    <form asp-action="Edit" asp-route-id="@item.Id" method="get" class="d-inline">
+                        <button type="submit" class="btn btn-dark btn-sm mb-1 mt-1">Edit</button>
+                    </form>
+                    <form asp-action="Details" asp-route-id="@item.Id" method="get" class="d-inline">
+                        <button type="submit" class="btn btn-dark btn-sm mb-1 mt-1">Details</button>
+                    </form>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="get" class="d-inline">
+                        <button type="submit" class="btn btn-dark btn-sm mb-1 mt-1">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
