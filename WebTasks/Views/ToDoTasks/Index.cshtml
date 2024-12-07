@@ -9,6 +9,11 @@
     <button type="submit" class="btn btn-dark mb-3">Create New</button>
 </form>
 
+@{
+    var firstTask = Model.OrderBy(t => t.Created).FirstOrDefault();
+}
+
+
 <h1 class="display-4">Welcome ToDoTasks</h1>
 <table>
     <tr>
@@ -17,14 +22,18 @@
                     onclick="loadModal('/modals/ToDoTasksModal/Create', '#modaltask')">
                 Quick Task
             </button>
-            <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
-                    onclick="loadModal('/modals/ToDoTasksModal/Edit/1', '#modaltask')">
-                Quick Edit
-            </button>
-            <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
-                    onclick="loadModal('/modals/ToDoTasksModal/Delete/1', '#modaltask')">
-                Quick Delete
-            </button>
+            @if (firstTask != null)
+            {
+                <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
+                        onclick="loadModal('/modals/ToDoTasksModal/Edit/@firstTask.Id', '#modaltask')">
+                    Quick Edit
+                </button>
+                <button type="button" class="btn btn-primary btn-sm mb-3 mt-3"
+                        onclick="loadModal('/modals/ToDoTasksModal/Delete/@firstTask.Id', '#modaltask')">
+                    Quick Delete
+                </button>
+            }
+
         </td>
     </tr>
 </table>
@@ -79,7 +88,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @item.TaskPriority.ToString() <!-- Aqui convertendo o enum para string -->
+                    @item.TaskPriority.ToString() 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Created)

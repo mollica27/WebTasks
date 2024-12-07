@@ -25,6 +25,7 @@ namespace WebTasks.Controllers
         }
 
         [HttpPost("Create")]
+        
         public async Task<IActionResult> Create(ToDoTask task)
         {
             if (!ModelState.IsValid)
@@ -48,7 +49,6 @@ namespace WebTasks.Controllers
             }
             catch (Exception ex)
             {
-               
                 Console.WriteLine($"Error during task creation: {ex.Message}");
                 return Json(new { success = false, message = "An error occurred while creating the task." });
             }
@@ -64,6 +64,7 @@ namespace WebTasks.Controllers
             var toDoTask = await _context.ToDoTask.FindAsync(id);
             if (toDoTask == null)
             {
+                
                 return NotFound();
             }
 
@@ -71,23 +72,21 @@ namespace WebTasks.Controllers
         }
 
         [HttpPost("Edit")]
+        
         public async Task<IActionResult> Edit(ToDoTask task)
         {
             if (!ModelState.IsValid)
             {
-            
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
                     Console.WriteLine($"Error: {error.ErrorMessage}");
                 }
 
-                
                 return Json(new { success = false, message = "Please provide valid data.", errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList() });
             }
 
             try
             {
-                
                 task.IsCompleted = (Request.Form["IsCompleted"] == "on");
 
                 _context.Update(task);
@@ -99,13 +98,13 @@ namespace WebTasks.Controllers
             {
                 if (!ToDoTaskExists(task.Id))
                 {
-                    return NotFound();
+                   
+                    return Json(new { success = false, message = "Task not found." });
                 }
                 throw;
             }
             catch (Exception ex)
             {
-                
                 Console.WriteLine($"Error during task update: {ex.Message}");
                 return Json(new { success = false, message = "An error occurred while updating the task." });
             }
@@ -117,6 +116,7 @@ namespace WebTasks.Controllers
             var toDoTask = await _context.ToDoTask.FindAsync(id);
             if (toDoTask == null)
             {
+               
                 return NotFound();
             }
 
@@ -124,6 +124,7 @@ namespace WebTasks.Controllers
         }
 
         [HttpPost("DeleteConfirmed")]
+        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
@@ -141,7 +142,6 @@ namespace WebTasks.Controllers
             }
             catch (Exception ex)
             {
-                
                 Console.WriteLine($"Error during task deletion: {ex.Message}");
                 return Json(new { success = false, message = "An error occurred while deleting the task." });
             }

@@ -6,9 +6,11 @@
 </div>
 <div class="modal-body">
     <p>Are you sure you want to delete the task: <strong>@Model.Title</strong>?</p>
-    <form asp-action="Delete" method="post">
+    <form id="deleteForm" action="/modals/ToDoTasksModal/DeleteConfirmed" method="post">
         <input type="hidden" id="Id" name="Id" value="@Model.Id" />
-        <button type="submit" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
     </form>
 </div>

@@ -26,7 +26,6 @@ C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets\msbuild.bu
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebTasks.props
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebTasks.props
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\WebTasks.dll
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\refint\WebTasks.dll
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\WebTasks.pdb
@@ -261,3 +260,6 @@ C:\Projetos\ForGov\WebTasks\WebTasks\bin\Debug\net8.0\runtimes\win\lib\net7.0\Sy
 C:\Projetos\ForGov\WebTasks\WebTasks\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\WebTasks.csproj.AssemblyReference.cache
 C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\WebTasks.csproj.Up2Date
+C:\Projetos\ForGov\WebTasks\WebTasks\bin\Debug\net8.0\dotenv.net.dll
+C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\WebTasks.sourcelink.json
+C:\Projetos\ForGov\WebTasks\WebTasks\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

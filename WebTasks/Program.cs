@@ -1,12 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebTasks.Data;
+using System.Globalization;
 
+var defaultCulture = new CultureInfo("en-US");
+defaultCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-ddTHH:mm:ss";
+CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
+CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<WebTasksContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WebTasksContext")
         ?? throw new InvalidOperationException("Connection string 'WebTasksContext' not found.")));
+
 
 
 builder.Services.AddControllersWithViews();

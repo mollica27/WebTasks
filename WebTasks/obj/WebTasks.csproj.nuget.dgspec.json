@@ -67,6 +67,10 @@
             "NuGet.Common": {
               "target": "Package",
               "version": "[6.12.1, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.2.1, )"
             }
           },
           "imports": [

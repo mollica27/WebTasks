@@ -5,43 +5,44 @@
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <form asp-action="Create" method="post">
-      
+    <form id="createForm" asp-controller="ToDoTasksModal" asp-action="Create" method="post">
+       
         <div class="mb-3">
-            <label for="Title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="Title" name="Title" placeholder="Task Title" required />
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" placeholder="Task Title" required />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
-        
         <div class="mb-3">
-            <label for="Description" class="form-label">Description</label>
-            <textarea class="form-control" id="Description" name="Description" placeholder="Task Description"></textarea>
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control" placeholder="Task Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
 
-        
         <div class="mb-3">
-            <label for="TaskPriority" class="form-label">Priority</label>
-            <select class="form-select" id="TaskPriority" name="TaskPriority">
+            <label asp-for="TaskPriority" class="form-label"></label>
+            <select asp-for="TaskPriority" class="form-select">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
             </select>
+            <span asp-validation-for="TaskPriority" class="text-danger"></span>
         </div>
 
-        
         <div class="mb-3">
-            <label for="Created" class="form-label">Created</label>
-            <input type="datetime-local" class="form-control" id="Created" name="Created"
-                   value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" required />
+            <label asp-for="Created" class="form-label"></label>
+            <input asp-for="Created" class="form-control" type="datetime-local" required />
+            <span asp-validation-for="Created" class="text-danger"></span>
         </div>
 
-       
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="IsCompleted" name="IsCompleted" />
-            <label class="form-check-label" for="IsCompleted">Completed</label>
+            <input asp-for="IsCompleted" class="form-check-input" />
+            <label asp-for="IsCompleted" class="form-check-label"></label>
         </div>
 
-        
-        <button type="submit" class="btn btn-primary">Create Task</button>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Create Task</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
     </form>
 </div>

@@ -36,26 +36,33 @@
             </div>
         </nav>
     </header>
-   <div class="container">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+        
+        <div id="alertContainer"></div>
     </div>
     <div class="modal fade" id="modaltask" tabindex="-1" aria-labelledby="modaltaskLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-               
             </div>
         </div>
     </div>
 
+    <div aria-live="polite" aria-atomic="true" class="position-relative" style="z-index: 2000;">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer">
+  
+        </div>
+    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - ForGOV - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-   
+
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>

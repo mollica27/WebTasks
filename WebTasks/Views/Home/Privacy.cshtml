@@ -4,34 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Privacy</h1>
 
-<p>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create New</button>
-</p>
+@* <p> *@
+@*     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create New</button> *@
+@* </p> *@
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Priority</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Title</td>
-                <td>@item.TaskPriority</td>
-                <td>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-id="@item.Id">Edit</button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@item.Id">Delete</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@* <table class="table table-hover"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th>Title</th> *@
+@*             <th>Priority</th> *@
+@*             <th>Actions</th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*         @foreach (var item in Model) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td>@item.Title</td> *@
+@*                 <td>@item.TaskPriority</td> *@
+@*                 <td> *@
+@*                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-id="@item.Id">Edit</button> *@
+@*                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@item.Id">Delete</button> *@
+@*                 </td> *@
+@*             </tr> *@
+@*         } *@
+@*     </tbody> *@
+@* </table> *@
 
 @* @section Scripts { *@
 @*     <script> *@
